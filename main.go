@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package main
 
 import (
@@ -24,15 +23,11 @@ import (
 	"net/http"
 )
 
-
-
-
 func main() {
 	http.HandleFunc("/blue", blueHandler)
 	http.HandleFunc("/red", redHandler)
 	http.ListenAndServe(":8080", nil)
 }
-
 
 func blueHandler(w http.ResponseWriter, r *http.Request) {
 	img := image.NewRGBA(image.Rect(0, 0, 100, 100))
@@ -40,12 +35,6 @@ func blueHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/png")
 	png.Encode(w, img)
 }
-
-
-
-
-
-
 
 func redHandler(w http.ResponseWriter, r *http.Request) {
 	img := image.NewRGBA(image.Rect(0, 0, 100, 100))
